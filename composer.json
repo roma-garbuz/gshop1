@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4":{
+      "gshop\\": "vendor/gshop/core",
+      "app\\": "app"
+    }
+  },
+  "require":{
+    "gabordemooij/redbean": "dev-master"
+  }
+}
