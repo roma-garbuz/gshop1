@@ -37,7 +37,8 @@ class View
 
     public function render($data){
         if(is_array($data)) extract($data);
-        $viewFile = APP . "/views/{$this->prefix}{$this->controller}/{$this->view}.php";
+        $viewFile = APP . "/views{$this->prefix}".THEME."/{$this->controller}/{$this->view}.php";
+
         if(is_file($viewFile)) {
             ob_start();
             require_once $viewFile;
@@ -46,7 +47,7 @@ class View
             throw new \Exception("Не найден вид {$viewFile}", 500);
         }
         if(false !== $this->layout) {
-           $layoutFile = APP . "/views/layouts/{$this->layout}.php";
+           $layoutFile = APP . "/views".THEME."/layouts/{$this->layout}.php";
             if(is_file($layoutFile)) {
                 require_once $layoutFile;
             } else {
