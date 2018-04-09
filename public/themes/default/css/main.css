@@ -227,7 +227,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   height: 40px;
   background-color: #222;
 }
-
+.btn-group, .btn-group-vertical {}
 /*---------------------------------------------*/
 .left-top-bar {
   font-family: Poppins-Regular;
@@ -235,7 +235,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   line-height: 1.8;
   color: #b2b2b2;
 }
-
+.content-topbar .btn-group {z-index: 1200}
 
 /*---------------------------------------------*/
 .right-top-bar a {
@@ -247,7 +247,13 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   color: #b2b2b2;
   border-right: 1px solid rgba(255,255,255,0.3);
 }
-
+.top-bar .dropdown-menu {
+  color: #fff;
+  margin-top: 0;
+  border: none;
+  background-color: #222;
+  border-radius: 0;
+}
 .right-top-bar a:first-child {
   border-left: 1px solid rgba(255,255,255,0.3);
 }
@@ -255,8 +261,14 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .right-top-bar a:hover {
   color: #6c7ae0;
 }
-
-
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.content-topbar .dropdown-item a {
+  border-left: none;
+  border-right: none;
+}
 /*---------------------------------------------*/
 .topbar-mobile li {
   padding: 8px 20px;

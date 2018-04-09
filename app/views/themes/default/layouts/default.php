@@ -55,14 +55,7 @@
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
-                    <div class="btn-group">
-                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">UAH<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item"><a href="#">RUR</a></li>
-                            <li class="dropdown-item"><a href="#">EUR</a></li>
-                            <li class="dropdown-item"><a href="#">USD</a></li>
-                        </ul>
-                    </div>
+                    <?php new \app\widgets\currency\Currency();?>
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25">
                         Help & FAQs

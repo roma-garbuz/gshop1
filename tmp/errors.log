@@ -70,3 +70,19 @@
  --------------- 
 [2018-04-06 20:59:50] Текст ошибки: Страница favicon.ico не найдена | Файл D:\gshop\gshop\vendor\gshop\core\Router.php | Строка: 46
  --------------- 
+[2018-04-07 07:09:32] Текст ошибки: Контроллер app\controllers\admin\MainController не найден | Файл D:\gshop\gshop\vendor\gshop\core\Router.php | Строка: 43
+ --------------- 
+[2018-04-07 07:09:32] Текст ошибки: Страница favicon.ico не найдена | Файл D:\gshop\gshop\vendor\gshop\core\Router.php | Строка: 46
+ --------------- 
+[2018-04-09 18:09:15] Текст ошибки: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'base' in 'field list' | Файл D:\gshop\gshop\vendor\gabordemooij\redbean\RedBeanPHP\Driver\RPDO.php | Строка: 188
+ --------------- 
+[2018-04-09 18:09:16] Текст ошибки: Страница favicon.ico не найдена | Файл D:\gshop\gshop\vendor\gshop\core\Router.php | Строка: 46
+ --------------- 
+[2018-04-09 21:24:34] Текст ошибки: Страница favicon.ico не найдена | Файл D:\gshop\gshop\vendor\gshop\core\Router.php | Строка: 46
+ --------------- 
+[2018-04-09 21:27:42] Текст ошибки: Страница site.webmanifest не найдена | Файл D:\gshop\gshop\vendor\gshop\core\Router.php | Строка: 46
+ --------------- 
+[2018-04-09 21:27:48] Текст ошибки: Страница site.webmanifest не найдена | Файл D:\gshop\gshop\vendor\gshop\core\Router.php | Строка: 46
+ --------------- 
+[2018-04-09 21:28:07] Текст ошибки: Страница site.webmanifest не найдена | Файл D:\gshop\gshop\vendor\gshop\core\Router.php | Строка: 46
+ --------------- 
