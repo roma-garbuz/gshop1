@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 09.04.2018
- * Time: 19:08
- */
 
 namespace app\controllers;
 
@@ -24,5 +18,4 @@ class CurrencyController extends AppController
         }
         redirect();
     }
-
 }

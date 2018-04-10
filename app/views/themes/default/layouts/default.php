@@ -8,8 +8,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="<?=THEME;?>/images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<?=THEME;?>/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?=THEME;?>/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6774d5">
     <meta name="msapplication-TileColor" content="#6774d5">
     <meta name="theme-color" content="#6774d5">
     <!--===============================================================================================-->
@@ -55,9 +53,7 @@
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
-                    <?php new \app\widgets\currency\Currency();?>
-
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                                       <a href="#" class="flex-c-m trans-04 p-lr-25">
                         Help & FAQs
                     </a>
 
@@ -65,13 +61,9 @@
                         My Account
                     </a>
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        EN
-                    </a>
+                    <?php new \app\widgets\currency\Currency();?>
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        USD
-                    </a>
+                    <?php new \app\widgets\language\Language();?>
                 </div>
             </div>
         </div>
@@ -185,13 +177,9 @@
                         My Account
                     </a>
 
-                    <a href="#" class="flex-c-m p-lr-10 trans-04">
-                        EN
-                    </a>
+                    <?php new \app\widgets\currency\Currency();?>
 
-                    <a href="#" class="flex-c-m p-lr-10 trans-04">
-                        USD
-                    </a>
+                    <?php new \app\widgets\language\Language();?>
                 </div>
             </li>
         </ul>

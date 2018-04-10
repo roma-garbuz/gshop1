@@ -10,6 +10,7 @@ namespace app\controllers;
 
 use app\models\AppModel;
 use app\widgets\currency\Currency;
+use app\widgets\language\Language;
 use gshop\App;
 use gshop\base\Controller;
 
@@ -22,5 +23,8 @@ class AppController extends Controller
         new AppModel();
         App::$app->setProperty('currencies', Currency::getCurrencies());
         App::$app->setProperty('currency',Currency::getCurrency(App::$app->getProperty('currencies')));
+
+        App::$app->setProperty('languages', Language::getLanguages());
+        App::$app->setProperty('language',Language::getLanguage(App::$app->getProperty('languages')));
     }
 }

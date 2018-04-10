@@ -22,7 +22,7 @@ class Currency
     }
 
     public static function getCurrencies(){
-        return \R::getAssoc("SELECT code, title, symbol_left, symbol_right, value, base FROM currencies ORDER BY base DESC");
+        return \R::getAssoc("SELECT code, title, symbol_left, symbol_right, value, base FROM currencies WHERE active = 1 ORDER BY base DESC");
     }
 
     public static function getCurrency($currencies){
@@ -38,7 +38,7 @@ class Currency
 
     public function getHtml(){
         ob_start();
-        require_once $this->tpl;
+        include $this->tpl;
         return ob_get_clean();
     }
 
