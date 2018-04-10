@@ -3,3 +3,5 @@ tmp/cache/098f6bcd4621d373cade4e832627b4f6.txt
 tmp/errors.log
 tmp/cache/098f6bcd4621d373cade4e832627b4f6.txt
 tmp/cache/098f6bcd4621d373cade4e832627b4f6.txt
+*.txt
+tmp/errors.log
