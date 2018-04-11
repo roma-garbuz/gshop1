@@ -19,7 +19,7 @@ $app_path = str_replace('/public/', '', $app_path);
 define("PATH", $app_path);
 
 // Папка админки
-define("Admin", PATH. '/admin');
+define("ADMIN", PATH. '/admin');
 
 // Подключение авозагрузчика композера
 require_once ROOT . '/vendor/autoload.php';

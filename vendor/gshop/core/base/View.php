@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 04.04.2018
- * Time: 11:37
- */
 
 namespace gshop\base;
 
@@ -37,7 +31,12 @@ class View
 
     public function render($data){
         if(is_array($data)) extract($data);
-        $viewFile = APP . "/views{$this->prefix}".THEME."/{$this->controller}/{$this->view}.php";
+        if($this->prefix == 'admin\\'){
+            $viewFile = APP . "/views/admin/{$this->controller}/{$this->view}.php";
+        } else {
+            $viewFile = APP . "/views{$this->prefix}".THEME."/{$this->controller}/{$this->view}.php";
+        }
+
 
         if(is_file($viewFile)) {
             ob_start();
@@ -47,7 +46,12 @@ class View
             throw new \Exception("Не найден вид {$viewFile}", 500);
         }
         if(false !== $this->layout) {
-           $layoutFile = APP . "/views".THEME."/layouts/{$this->layout}.php";
+            if($this->prefix != 'admin\\'){
+
+                $layoutFile = APP . "/views".THEME."/layouts/{$this->layout}.php";
+            } else {
+                $layoutFile = APP . "/views/admin/layouts/{$this->layout}.php";
+            }
             if(is_file($layoutFile)) {
                 require_once $layoutFile;
             } else {

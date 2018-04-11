@@ -61,7 +61,7 @@ class Router
                 if(!isset($route['prefix'])){
                     $route['prefix'] = '';
                 } else {
-                    $route['prefix'] .= '\\';
+                    $route['prefix'] .= '\\' ;
                 }
                 $route['controller'] = self::upperCamelCace($route['controller']);
                 self::$route = $route;
