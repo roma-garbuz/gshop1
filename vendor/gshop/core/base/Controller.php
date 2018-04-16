@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 04.04.2018
- * Time: 11:12
- */
 
 namespace gshop\base;
 
