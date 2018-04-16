@@ -8,18 +8,45 @@ class CategoriesController extends AppController
 {
     public $data;
     protected $template;
+    protected $tree;
+    public $htmlTree;
+
+    public function __construct($route)
+    {
+        parent::__construct($route);
+        $this->template = WWW.'/adminfile/template/categories/categoriestree.php';
+    }
 
     public function indexAction(){
         $this->setMeta('Категории','Категории','Категории');
-        $this->getCategories();
     }
-    public function getCategories(){
-        $this->data = \R::getAssoc("SELECT * FROM categories");
-        debug($this->data);
 
+    protected function getTree(){
+        $baseLang = App::$app->getProperty('baseLang');
+        $data = \R::getAssoc("SELECT c.categories_id,c.parent_id,c.sort_order,cd.categories_name,cd.categories_alias  FROM categories c, categories_description cd WHERE c.categories_id = cd.categories_id AND cd.language_id = $baseLang ORDER BY sort_order");
+        $tree = [];
+        foreach ($data as $id => &$node){
+            if(!$node['parent_id']){
+                $tree[$id] = &$node;
+            } else {
+                $data[$node['parent_id']]['childs'][$id] = &$node;
+            }
+        }
+        $this->tree = $tree;
     }
+
     public function htmlCategories(){
+        $str = '';
+        foreach ($this->tree as $id => $category){
+            $str .= $this->catToTemplate($category,$id);
+        }
+        $this->htmlTree = $str;
+    }
 
+    protected function catToTemplate($category,$id){
+        ob_start();
+        require $this->template;
+        return ob_get_clean();
     }
 }
 

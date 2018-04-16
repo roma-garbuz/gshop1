@@ -1,4 +1,3 @@
-<?php new \app\widgets\menu\Menu(); die; ?>
 <?php new \app\widgets\banners\Banners('slider','slider')?>
 <!-- Banner -->
 

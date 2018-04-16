@@ -593,7 +593,10 @@
 <!-- ace scripts -->
 <script src="assets/js/ace-elements.min.js"></script>
 <script src="assets/js/ace.min.js"></script>
-
+<?php
+$logs = \R::getDatabaseAdapter()->getDatabase()->getLogger();
+debug($logs->grep('SELECT'));
+?>
 <!-- inline scripts related to this page -->
 </body>
 </html>

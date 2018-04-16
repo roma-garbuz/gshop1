@@ -23,12 +23,8 @@ class AppController extends Controller
         App::$app->setProperty('language',Language::getLanguage(App::$app->getProperty('languages')));
 
         App::$app->setProperty('cats',self::cacheCategory());
-<<<<<<< HEAD
         //debug(App::$app->getProperties());
 
-=======
-        debug(App::$app->getProperties());
->>>>>>> afb0b8f879b4f52985cf9fe2c320ee47a0bc39cd
     }
 
     public static function cacheCategory(){
