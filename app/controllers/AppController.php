@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 04.04.2018
- * Time: 11:22
- */
 
 namespace app\controllers;
 
@@ -30,7 +24,6 @@ class AppController extends Controller
 
         App::$app->setProperty('cats',self::cacheCategory());
         debug(App::$app->getProperties());
-
     }
 
     public static function cacheCategory(){

@@ -45,4 +45,6 @@ class Menu
     protected function output(){
         echo $this->menuHtml;
     }
+
+
 }
