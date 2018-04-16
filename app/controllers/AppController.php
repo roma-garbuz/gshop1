@@ -29,7 +29,7 @@ class AppController extends Controller
         App::$app->setProperty('language',Language::getLanguage(App::$app->getProperty('languages')));
 
         App::$app->setProperty('cats',self::cacheCategory());
-        debug(App::$app->getProperties());
+        //debug(App::$app->getProperties());
 
     }
 
