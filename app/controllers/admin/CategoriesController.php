@@ -19,6 +19,10 @@ class CategoriesController extends AppController
 
     public function indexAction(){
         $this->setMeta('Категории','Категории','Категории');
+
+        $this->getTree();
+        $tree = $this->htmlCategories($this->tree);
+        $this->set(compact('tree'));
     }
 
     protected function getTree(){
@@ -35,12 +39,12 @@ class CategoriesController extends AppController
         $this->tree = $tree;
     }
 
-    public function htmlCategories(){
+    public function htmlCategories($tree){
         $str = '';
-        foreach ($this->tree as $id => $category){
+        foreach ($tree as $id => $category){
             $str .= $this->catToTemplate($category,$id);
         }
-        $this->htmlTree = $str;
+        return $str;
     }
 
     protected function catToTemplate($category,$id){

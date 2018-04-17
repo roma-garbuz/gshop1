@@ -18,7 +18,11 @@
         <!-- PAGE CONTENT BEGINS -->
         <div class="row">
             <div class="col-sm-4">
-                <?php new \app\controllers\admin\CategoriesController->ht?>
+                <div class="dd" id="nestable">
+                    <ol class="dd-list">
+                        <?php echo $tree;?>
+                    </ol>
+                </div>
             </div>
 
             <div class="vspace-16-sm"></div>
