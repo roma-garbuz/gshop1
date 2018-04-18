@@ -23,6 +23,7 @@
                         <?php echo $tree;?>
                     </ol>
                 </div>
+                <input type="hidden" id="nestable-output">
             </div>
 
             <div class="vspace-16-sm"></div>
@@ -229,16 +230,45 @@
 
 <script src="assets/js/jquery.nestable.min.js"></script>
 
-<script type="text/javascript">
-    jQuery(function($){
+<script>
 
-        $('.dd').nestable();
+    $(document).ready(function()
+    {
 
-        $('.dd-handle a').on('mousedown', function(e){
-            e.stopPropagation();
+        var updateOutput = function(e)
+        {
+            var list   = e.length ? e : $(e.target),
+                output = list.data('output');
+            if (window.JSON) {
+                output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+            } else {
+                output.val('JSON browser support required for this demo.');
+            }
+        };
+
+        // activate Nestable for list 1
+        $('#nestable').nestable({
+            group: 1
+        })
+            .on('change', updateOutput);
+
+
+
+        // output initial serialised data
+        updateOutput($('#nestable').data('output', $('#nestable-output')));
+
+        $('#nestable-menu').on('click', function(e)
+        {
+            var target = $(e.target),
+                action = target.data('action');
+            if (action === 'expand-all') {
+                $('.dd').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('.dd').nestable('collapseAll');
+            }
         });
 
-        $('[data-rel="tooltip"]').tooltip();
 
     });
 </script>

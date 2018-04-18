@@ -1,6 +1,5 @@
 <?php $parent = isset($category['childs']);?>
-
-<li class="dd-item " data-id="<?php echo $category['sort_order']?>">
+<li class="dd-item dd-nodrag" data-id="<?php echo $id?>">
     <div class="dd-handle">
        <?php echo $category['categories_name']?>
         <div class="pull-right action-buttons">
