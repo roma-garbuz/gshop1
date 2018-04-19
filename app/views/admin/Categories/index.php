@@ -2,10 +2,10 @@
     <h1>
         Категории
         <div style="margin-top: 10px">
-            <button class="btn btn-primary">
+            <a href="<?php echo ADMIN; ?>/categories/add" class="btn btn-primary">
                 <i class="menu-icon fa fa-plus"></i>
                 Добавить категорию
-            </button>
+            </a>
             <button class="btn btn-primary">
                 <i class="menu-icon fa fa-plus"></i>
                 Добавить продукт
@@ -263,7 +263,8 @@
             $('#cat-save').removeClass('disabled');
         });
         $("#cat-save").click(function(){
-            $("#load").show();
+            $("#cat-save .ace-icon").removeClass('fa-floppy-o');
+            $("#cat-save .ace-icon").addClass('fa-spinner fa-spin');
 
             var dataString = {
                 data : $("#nestable-output").val(),
@@ -275,7 +276,9 @@
                 data: dataString,
                 cache : false,
                 success: function(data){
-                    $("#load").hide();
+                    $("#cat-save .ace-icon").addClass('fa-floppy-o');
+                    $("#cat-save .ace-icon").removeClass('fa-spinner fa-spin');
+                    $('#cat-save').addClass('disabled');
                     alert('Data has been saved');
 
                 } ,error: function(xhr, status, error) {

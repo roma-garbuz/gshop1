@@ -541,6 +541,44 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <?php if(isset($_SESSION['error'])):?>
+                                        <div class="alert alert-danger">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <i class="ace-icon fa fa-times"></i>
+                                            </button>
+                                            <strong>
+                                                <i class="ace-icon fa fa-times"></i>
+                                            </strong>
+                                            <?php echo $_SESSION['error']; unset($_SESSION['error']);?>
+                                            <br>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if(isset($_SESSION['success'])):?>
+                                        <div class="alert alert-success">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <i class="ace-icon fa fa-times"></i>
+                                            </button>
+                                            <strong>
+                                                <i class="ace-icon fa fa-check"></i>
+                                            </strong>
+                                            <?php echo $_SESSION['success']; unset($_SESSION['success']);?>
+                                            <br>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if(isset($_SESSION['warning'])):?>
+                                        <div class="alert alert-warning">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <i class="ace-icon fa fa-times"></i>
+                                            </button>
+                                            <strong>! </strong>
+                                            <?php echo $_SESSION['warning']; unset($_SESSION['warning']);?>
+                                            <br>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                             <?php echo $content;?>
                         <!-- PAGE CONTENT ENDS -->
                     </div><!-- /.col -->
