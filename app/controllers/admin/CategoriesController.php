@@ -52,5 +52,10 @@ class CategoriesController extends AppController
         require $this->template;
         return ob_get_clean();
     }
+
+    public function saveSortAction(){
+        $data = json_decode($_POST['data']);
+        debug($data);
+    }
 }
 

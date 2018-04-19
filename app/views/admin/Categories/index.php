@@ -24,6 +24,7 @@
                     </ol>
                 </div>
                 <input type="hidden" id="nestable-output">
+                <button id="cat-save" class="btn disabled btn-primary"><i class="ace-icon fa fa-floppy-o bigger-120"></i>  Сохранить сортировку</button>
             </div>
 
             <div class="vspace-16-sm"></div>
@@ -257,16 +258,30 @@
         // output initial serialised data
         updateOutput($('#nestable').data('output', $('#nestable-output')));
 
-        $('#nestable-menu').on('click', function(e)
-        {
-            var target = $(e.target),
-                action = target.data('action');
-            if (action === 'expand-all') {
-                $('.dd').nestable('expandAll');
-            }
-            if (action === 'collapse-all') {
-                $('.dd').nestable('collapseAll');
-            }
+
+        $('#nestable').on('change', function() {
+            $('#cat-save').removeClass('disabled');
+        });
+        $("#cat-save").click(function(){
+            $("#load").show();
+
+            var dataString = {
+                data : $("#nestable-output").val(),
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "<?php echo ADMIN?>/categories/save-sort",
+                data: dataString,
+                cache : false,
+                success: function(data){
+                    $("#load").hide();
+                    alert('Data has been saved');
+
+                } ,error: function(xhr, status, error) {
+                    alert(error);
+                },
+            });
         });
 
 
