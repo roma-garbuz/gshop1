@@ -4,22 +4,24 @@ namespace app\widgets\menu;
 
 
 use gshop\Cache;
+use gshop\App;
 
 class Menu
 {
     protected $data;
     protected $tree;
     protected $menuHtml;
-    protected $template;
+    protected $tpl;
     protected $container = 'ul';
+    protected $class = 'menu';
     protected $table = 'category';
     protected $cache = 3600;
-    protected $cacheKey ='category_menu';
+    protected $cacheKey ='gshop_menu';
     protected $attrs = [];
     protected $prepend = '';
 
     public function __construct($options=[]){
-        $this->template = __DIR__. '/menu_tpl/menu.php';
+        $this->tpl = __DIR__. '/menu_tpl/menu.php';
         $this->getOptions($options);
         $this->run();
     }
@@ -34,17 +36,56 @@ class Menu
 
     protected function run(){
         $cache=Cache::instance();
+
         $this->menuHtml = $cache->get($this->cacheKey);
         if(!$this->menuHtml){
-
+            $this->tree = $this->getTree();
+            $this->menuHtml = $this->getMenuHtml($this->tree);
+            if($this->cache){
+                $cache->set($this->cacheKey,$this->menuHtml, $this->cache);
+            }
         }
         $this->output();
-
     }
 
     protected function output(){
+        $attrs = '';
+        if(!empty($this->attrs)){
+            foreach ($this->attrs as $k => $v){
+                $attrs.=" $k='$v' ";
+            }
+        }
+        echo $this->prepend;
+        echo "<{$this->container} class='{$this->class}' $attrs>";
         echo $this->menuHtml;
+        echo "</{$this->container}>";
     }
 
+    protected function getTree(){
+        $data = $this->data;
+        $tree = [];
+        foreach ($data as $id => &$node){
+            if(!$node['parent_id']){
+                $tree[$id] = &$node;
+            } else {
+                $data[$node['parent_id']]['childs'][$id] = &$node;
+            }
+        }
+        return $tree;
+    }
+
+    public function getMenuHtml($tree, $tab=''){
+        $str = '';
+        foreach ($tree as $id => $category){
+            $str .= $this->catToTemplate($category,$tab,$id);
+        }
+        return $str;
+    }
+
+    protected function catToTemplate($category,$tab,$id){
+        ob_start();
+        require $this->tpl;
+        return ob_get_clean();
+    }
 
 }

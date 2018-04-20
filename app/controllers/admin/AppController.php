@@ -16,3 +16,4 @@ class AppController extends Controller
         App::$app->setProperty('baseLang', \R::getCol('SELECT languages_id FROM languages WHERE base = 1')[0]);
     }
 }
+
