@@ -87,7 +87,7 @@
                         'attrs' => [
                             'style' => 'padding:0'
                         ],
-                        'data'=>  \R::getAssoc("SELECT c.categories_id,c.parent_id,cd.categories_name,cd.categories_alias  FROM categories c, categories_description cd WHERE c.categories_id = cd.categories_id AND cd.language_id = ".\gshop\App::$app->getProperty('language')['languages_id']." ORDER BY sort_order")
+                        'data'=>  \R::getAssoc("SELECT c.id,c.parent_id,cd.categories_name,cd.categories_alias  FROM categories c, categories_description cd WHERE c.id = cd.categories_id AND cd.language_id = ".\gshop\App::$app->getProperty('language')['languages_id']." ORDER BY sort_order")
                     ]);
                     ?>
                 </div>

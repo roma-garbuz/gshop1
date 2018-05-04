@@ -22,7 +22,7 @@ class Language
     }
 
     public static function getLanguages(){
-        return \R::getAssoc("SELECT code, languages_id, image, base FROM languages WHERE  active = 1 ORDER BY base DESC");
+        return \R::getAssoc("SELECT code, languages_id, name, base FROM languages WHERE  active = 1 ORDER BY base DESC");
     }
 
     public static function getLanguage($languages){

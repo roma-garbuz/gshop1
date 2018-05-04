@@ -12,6 +12,7 @@ abstract class Controller
     public $layout;
     public $data = [];
     public $meta = [];
+    public $bottomScript;
 
     public function __construct($route)
     {
@@ -22,7 +23,7 @@ abstract class Controller
         $this->prefix = $route['prefix'];
     }
     public function getView(){
-        $viewObject = new View($this->route,$this->layout, $this->view, $this->meta);
+        $viewObject = new View($this->route,$this->layout, $this->view, $this->meta, $this->bottomScript);
         $viewObject->render($this->data);
     }
 
@@ -34,5 +35,8 @@ abstract class Controller
         $this->meta['title'] = $title;
         $this->meta['description'] = $description;
         $this->meta['keywords'] = $keywords;
+    }
+    public function setBottomScript($str){
+        $this->bottomScript = $str;
     }
 }

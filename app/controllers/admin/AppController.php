@@ -14,6 +14,7 @@ class AppController extends Controller
         new AppModel();
         parent::__construct($route);
         App::$app->setProperty('baseLang', \R::getCol('SELECT languages_id FROM languages WHERE base = 1')[0]);
+
     }
 }
 

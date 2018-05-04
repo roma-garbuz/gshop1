@@ -14,7 +14,7 @@
     </div>
     <?php if(isset($category['childs'])):?>
         <ol class="dd-list">
-            <?php echo $this->htmlCategories($category['childs'])?>
+            <?php echo  $this->getMenuHtml($category['childs'])?>
         </ol>
     <?php endif; ?>
 </li>

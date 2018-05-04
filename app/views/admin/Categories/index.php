@@ -19,9 +19,16 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="dd" id="nestable">
-                    <ol class="dd-list">
-                        <?php echo $tree;?>
-                    </ol>
+                    <?php
+                    new \app\widgets\menu\Menu([
+                        'cache'=>0,
+                        'cacheKey' => 'catMenu',
+                        'class' => 'dd-list',
+                        'container' => 'ol',
+                        'tpl' => WIDGETS. '/menu/menu_tpl/categoriestree.php',
+                        'data'=>  \R::getAssoc("SELECT c.id,c.parent_id,c.sort_order,cd.categories_name,cd.categories_alias  FROM categories c, categories_description cd WHERE c.id = cd.categories_id AND cd.language_id = ".\gshop\App::$app->getProperty('baseLang')." ORDER BY sort_order"),
+                    ]);
+                    ?>
                 </div>
                 <input type="hidden" id="nestable-output">
                 <button id="cat-save" class="btn disabled btn-primary"><i class="ace-icon fa fa-floppy-o bigger-120"></i>  Сохранить сортировку</button>
@@ -228,7 +235,7 @@
         </div><!-- PAGE CONTENT ENDS -->
     </div><!-- /.col -->
 </div><!-- /.row -->
-
+<!--
 <script src="assets/js/jquery.nestable.min.js"></script>
 
 <script>
@@ -290,5 +297,6 @@
 
     });
 </script>
+-->
 
 

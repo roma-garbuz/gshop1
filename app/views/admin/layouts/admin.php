@@ -541,19 +541,13 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
+                        <!-- Errors -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <?php if(isset($_SESSION['error'])):?>
-                                        <div class="alert alert-danger">
-                                            <button type="button" class="close" data-dismiss="alert">
-                                                <i class="ace-icon fa fa-times"></i>
-                                            </button>
-                                            <strong>
-                                                <i class="ace-icon fa fa-times"></i>
-                                            </strong>
+
                                             <?php echo $_SESSION['error']; unset($_SESSION['error']);?>
-                                            <br>
-                                        </div>
+
                                     <?php endif; ?>
                                     <?php if(isset($_SESSION['success'])):?>
                                         <div class="alert alert-success">
@@ -579,6 +573,7 @@
                                     <?php endif; ?>
                                 </div>
                             </div>
+                        <!-- End Errors -->
                             <?php echo $content;?>
                         <!-- PAGE CONTENT ENDS -->
                     </div><!-- /.col -->
@@ -625,9 +620,12 @@
 </script>
 
 <script src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
 
 <!-- page specific plugin scripts -->
-
+<?=$this->getBottomScript();?>
 <!-- ace scripts -->
 <script src="assets/js/ace-elements.min.js"></script>
 <script src="assets/js/ace.min.js"></script>

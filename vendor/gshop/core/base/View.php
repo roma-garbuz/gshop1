@@ -13,8 +13,9 @@ class View
     public $layout;
     public $data = [];
     public $meta = ['title' => '', 'description' => '', 'keywords' => ''];
+    public $bottomScript;
 
-    public function __construct($route, $layout = '', $view = '', $meta)
+    public function __construct($route, $layout = '', $view = '', $meta, $bottomScript = '')
     {
         $this->route =  $route;
         $this->controller = $route['controller'];
@@ -27,6 +28,7 @@ class View
         } else {
             $this->layout = $layout ?: LAYOUT;
         }
+        $this->bottomScript = $bottomScript;
     }
 
     public function render($data){
@@ -65,5 +67,8 @@ class View
         $output .='<meta name="description" content="'.$this->meta['description'].'">'.PHP_EOL;
         $output .='<meta name="keywords" content="'.$this->meta['keywords'].'">'.PHP_EOL;
         return $output;
+    }
+    public function getBottomScript (){
+        return $this->bottomScript;
     }
 }

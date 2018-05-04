@@ -9,6 +9,7 @@ define("CORE", ROOT . '/vendor/gshop/core');
 define("LIBS", ROOT . '/vendor/gshop/core/libs');
 define("CACHE", ROOT . '/tmp/cache');
 define("CONF", ROOT . '/config');
+define("WIDGETS", ROOT . '/app/widgets');
 define("THEME", '/themes/default');
 define("LAYOUT", 'default');
 
